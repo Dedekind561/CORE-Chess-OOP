@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OOP-Chess #
 
 * In this sprint you are going to be creating classes that will represent various aspects of a chess game.  Starting with the pieces and building it up from there you need to think carefully about all the different properties and methods each component in the game will need.  You should bare this in mind as you are building up your test-suite.
@@ -89,3 +90,6 @@ mitch.getAvailablePieces(); // returns an array of all the pieces that can be mo
 
 
 ```
+=======
+# CORE-Chess-OOP
+>>>>>>> 0cf7a14747c63ce2be87e487608be23bc6c0af0f
