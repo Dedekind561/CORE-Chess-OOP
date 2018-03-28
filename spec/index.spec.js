@@ -15,28 +15,38 @@ describe('#CHESS',() => {
 			expect(myPiece.currentPosition).to.equal('A1');
 		});
 		describe('advancePosition',() => {
-			it('advances position of white piece on a empty board',() => {
-				let newPiece  = new Piece('D1','white');
+			it ('advances white piece several forwards only on an empty board',() => {
+				let newPiece = new Piece('A2','white');
+				let actual = newPiece.advancePosition([0, 3]);
+				expect(actual).to.equal('A5');
+				newPiece = new Piece('C1','white');
+				actual = newPiece.advancePosition('C1',[0,5]);
+				expect(actual).to.equal('C6');
+				newPiece = new Piece('D1','white');
+			});
+			it('advances position of white piece on a empty board using across and up and down',() => {
+				let newPiece = new Piece('C2', 'white');
 				let actual = newPiece.advancePosition([1,1]);
 				expect(actual).to.equal('B3');
-				newPiece  = new Piece('C1');
-				actual = newPiece.advancePosition('C1',[5,0]);
-				expect(actual).to.equal('H1');
+				newPiece = new Piece('C2', 'white');
+				actual = newPiece.advancePosition([-1,1]);
+				expect(actual).to.equal('D3');
 			});
-			it ('advances position of black piece on an empty board',() => {
-				const newPiece  = new Piece('C7', 'black');
-				const actual = newPiece.advancePosition([1,1]);
+			it ('advances black piece forwards only on an empty board',() => {
+				let newPiece = new Piece('C7', 'black');
+				let actual = newPiece.advancePosition([0, 3]);
+				expect(actual).to.equal('C4');
+				newPiece = new Piece('C7', 'black');
+				actual = newPiece.advancePosition([0, 5]);
+				expect(actual).to.equal('C2');
+			});
+			it ('advances black piece several spaces forwards on an empty board using up and down',() => {
+				let newPiece  = new Piece('C7', 'black');
+				let actual = newPiece.advancePosition([1,1]);
 				expect(actual).to.equal('D6');
-			});
-			it ('advances white piece several spaces forwards on an empty board',() => {
-				const newPiece  = new Piece('A2','white');
-				const actual = newPiece.advancePosition([0, 3]);
-				expect(actual).to.equal('A5');
-			});
-			it ('advances black piece several spaces forwards on an empty board',() => {
-				const newPiece  = new Piece('A7','black');
-				const actual = newPiece.advancePosition([0, 3]);
-				expect(actual).to.equal('A4');
+				newPiece = new Piece('C7', 'black');
+				actual = newPiece.advancePosition([-1,1]);
+				expect(actual).to.equal('B6');
 			});
 		});
 		describe('Chessboard', () => {

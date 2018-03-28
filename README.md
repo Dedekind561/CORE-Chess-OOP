@@ -10,12 +10,17 @@
 
 
 * Create a `Piece` class that returns an object representing a piece.
-It should have the following properties :
+It should have the following properties and methods :
 
 ```js 
 const piece = new Piece('A1','white');
 piece.currentPosition; // return the string 'A1';
 piece.colour; // should return "white" in this case
+piece.advanceMove([1,1]); 
+
+/** Should take an array that represents the translation of the piece across the board.  The first number in the array represents the horizontal shift and the second number in the array represents the move up and down the board.
+Remember this will always work from the r
+**/
 
 ```
 
